@@ -33,7 +33,7 @@ The dataset contains the following columns:
 
 7. listed_in : Category/type of restaurant
 
-🧱 1. Table Creation
+1. Table Creation
 ```sql
 drop table if exists zomato;
 
@@ -48,7 +48,7 @@ create table zomato(
 );
 ```
 
-🧹 Data Cleaning & Preparation
+2.Data Cleaning & Preparation
 
 ~ Key cleaning steps performed:
 
@@ -89,7 +89,7 @@ where namee is null
    or approx_cost is null
    or listed_in is null;
 ```
-🔍 3. Basic Exploration
+3. Basic Exploration
 ```sql
 select count(*) as total_rows from zomato;
 
@@ -97,7 +97,7 @@ select distinct listed_in from zomato;
 
 select distinct namee from zomato;
 ```
-🍽️ 4. Restaurant Frequency
+4. Restaurant Frequency
 ```sql
 -- Restaurants appearing multiple times
 select namee, count(*) as frequency
@@ -106,7 +106,7 @@ group by namee
 having count(*) > 1
 order by frequency desc;
 ```
-📊 5. Booking Analysis
+5. Booking Analysis
 ```sql
 -- Total booking availability
 select book_table, count(*) as total
@@ -126,7 +126,7 @@ where book_table = 'Yes'
 group by listed_in
 order by bookings desc;
 ```
-💰 6. Cost Analysis
+6. Cost Analysis
 ```sql
 -- Highest cost per category
 select listed_in, max(approx_cost) as highest_cost
@@ -139,7 +139,7 @@ from zomato
 order by approx_cost desc
 limit 1;
 ```
-⭐ 7. Cost vs Rating
+7. Cost vs Rating
 ```sql
 select 
 case 
